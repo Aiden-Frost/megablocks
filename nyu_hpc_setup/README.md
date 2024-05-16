@@ -50,3 +50,9 @@ install them via nohup command. Example: If (pip install .) is taking too long t
 ```
 This will do the installation in background. Then you can hit `ctrl+c` and then run `top` and wait until the installation is done.
 Which you can check using `jobs` command.
+
+# Reproduce results
+
+To reproduce our results, switch to the `<net_id>` branch for simple script to run the intensive testcases.
+
+Run `dmoe_test.py` for baseline testing and `dmoe_benchmark.py` for getting the time taken for each baseline. (Note: these scripts will require some manual setup explaiend in comments)
