@@ -9,6 +9,7 @@ from megablocks.layers import moe
 from megablocks.layers import testing
 import torch
 
+from dmoe_groupedBatched import groupedBatchedDMOE
 
 def test_modules(
         hidden_size,
@@ -33,7 +34,9 @@ def test_modules(
 
     mlp = testing.FFN(args)
     moe_mlp = moe.MoE(args)
-    dmoe_mlp = dmoe.dMoE(args)
+    # dmoe_mlp = dmoe.dMoE(args)
+    # for using our implementation of grouped and for comparing our output with baseline
+    dmoe_mlp = groupedBatchedDMOE(args)
 
     mlp.cuda(torch.cuda.current_device()).to(torch.bfloat16)
     moe_mlp.cuda(torch.cuda.current_device()).to(torch.bfloat16)
